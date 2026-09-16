@@ -1,35 +1,70 @@
-# TongueTie — Figma-Style Full App Package
 
-This ZIP is the revised package requested for the TongueTie app.
+# TongueTie — Complete Multilingual Language Learning App
 
-## Main prototype
-Open `prototype/index.html`.
+TongueTie is a Figma-inspired multilingual learning application with a Streamlit backend and an interactive browser prototype.
 
-The interface is deliberately designed as a polished Figma-style product prototype:
-- mobile-responsive visual system
-- dark premium UI
-- rounded cards and panels
-- gradients and design tokens
-- persistent navigation
-- clickable screen-to-screen prototype flow
+## Included
+- 100+ language choices
+- Gemini-powered AI tutor
+- Translation
+- Grammar and writing correction
+- Vocabulary / difficult-word analysis
+- Lesson generation
+- Quiz/test generation
+- Progress dashboard
+- Voice recording UI
+- Female/male voice preference in the browser prototype
+- Pronunciation workflow extension point
+- Lightweight RAG knowledge base
+- Admin dashboard shell
+- Responsive Figma-style design
+- GitHub + Streamlit-ready structure
 
-## Clickable flow
-Home → Daily Lesson → Voice Studio → Translate → AI Tutor → Vocabulary → Grammar → Quiz → Progress → Profile.
+## Run the Streamlit app
 
-## Voice Studio
-Includes a dedicated waveform screen with browser microphone recording, stop and playback controls.
+```bash
+cd streamlit_app
+python -m pip install -r requirements.txt
+streamlit run app.py
+```
 
-## Streamlit
-`streamlit_app/app.py` is a development shell for moving the visual system into Streamlit.
+Configure secrets/environment:
+- `GEMINI_API_KEY` — required for Gemini features
+- `GEMINI_MODEL` — optional, set to a model available to your Gemini API account
+- `TONGUETIE_ADMIN_PASSWORD` — optional admin password
 
-## Production integration
-Connect:
-- Gemini API
-- RAG/vector database
-- speech-to-text
-- text-to-speech
-- pronunciation scoring
-- authentication
-- user progress database
+For Streamlit Cloud, put the same values in the app's Secrets.
 
-Never commit API keys to GitHub; use Streamlit Secrets/environment variables.
+## Run the browser prototype
+
+Open `prototype/index.html` in a modern browser. It includes:
+- mobile Figma-style navigation
+- voice recording
+- browser speech synthesis with a female-voice preference
+- translation demo
+- AI tutor demo
+- correction demo
+- vocabulary, grammar, quiz and progress screens
+
+The browser prototype uses local/demo responses. Connect it to your deployed backend for production AI.
+
+## Real voice translation
+
+The app deliberately separates speech from the UI because recording alone is not speech recognition.
+
+Production pipeline:
+1. Microphone audio
+2. Multilingual Speech-to-Text
+3. Language detection
+4. Gemini translation/correction
+5. Optional pronunciation assessment
+6. Text-to-Speech using selected voice gender
+7. Return translated audio + transcript + feedback
+
+See `streamlit_app/speech_service.py`.
+
+## Important
+
+Do not commit API keys to GitHub. Use Streamlit Secrets or environment variables.
+
+This package is a complete starter implementation, but external STT/TTS providers and authentication/database infrastructure must be connected before claiming production deployment.

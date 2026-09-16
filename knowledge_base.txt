@@ -1,13 +1,14 @@
-Daily-life English: Greetings include hello, good morning, nice to meet you, how are you, and see you later. Practice polite introductions and short responses.
 
-Present simple grammar: Use the base verb for I/you/we/they. Add -s or -es for he/she/it. Use do/does for many questions and negatives.
+TongueTie learning principles
 
-Vocabulary learning: Teach meaning, part of speech, example sentence, common collocations, synonyms, antonyms, and translation into the learner's native language.
+Vocabulary: Teach meaning in context, part of speech, pronunciation, examples, related words and spaced review.
 
-Pronunciation practice: Focus on word stress, syllables, connected speech, difficult consonants and vowels, and listening before repeating.
+Grammar: Explain rules simply, show affirmative/negative/question forms, then provide controlled and free practice.
 
-Restaurant English: Useful phrases include asking for a table, ordering food, asking for the bill, describing dietary needs, and thanking staff.
+Speaking: A production system should transcribe speech, compare it with the expected phrase, identify pronunciation/fluency issues, and provide actionable feedback.
 
-Travel English: Teach airport, hotel, directions, tickets, transportation, emergencies, and polite questions.
+Translation: Preserve meaning, register, cultural context and ambiguity. For languages with multiple scripts or dialects, explain the selected variety.
 
-RAG workflow: retrieve relevant knowledge first, add it to the prompt, generate a grounded explanation, then give the learner practice and review.
+Pronunciation: Use the target language's own phonology. Do not invent an audio result. Pronunciation scores require an actual speech assessment service.
+
+Safety: Language learning is educational. Do not treat translation or AI explanations as professional legal, medical or financial advice.

@@ -1,15 +1,10 @@
-# TongueTie UI Design System
-
-## Style
-Dark premium, Figma-inspired, mobile-first.
-
-## Core tokens
+# TongueTie Design System
 Background: #050713
-Panels: #10172D
-Borders: #293761
-Primary gradient: #55C7FF → #9B5CFF
+Panel: #10172D
+Panel 2: #151D38
+Border: #293761
 Text: #F8F9FF
 Muted: #AAB4D1
-
-## Components
-Hero, metric card, navigation, tags, buttons, input fields, lesson cards, waveform, quiz options, progress bar, profile card.
+Primary gradient: #55C7FF → #9B5CFF
+Radius: 14 / 20 / 28
+Typography: Inter/system sans

@@ -2,73 +2,89 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TongueTie — Figma Style Prototype</title>
+<title>TongueTie — Figma-style Multilingual App</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#050713;color:#f8f9ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}
-button,input,textarea,select{font:inherit}.app{min-height:100vh;background:radial-gradient(circle at 50% -10%,#37206e 0,#0a0e20 42%,#050713 100%);padding:28px}
-.frame{max-width:1220px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.brand{font-weight:900;font-size:28px;letter-spacing:-1px}.gradient{background:linear-gradient(90deg,#55c7ff,#9b5cff);-webkit-background-clip:text;color:transparent}
-.prototype{display:grid;grid-template-columns:280px 1fr;gap:22px}.sidebar{background:rgba(13,18,39,.94);border:1px solid #2b3864;border-radius:28px;padding:18px;box-shadow:0 24px 70px #0008;height:max-content}
-.profile-mini{padding:16px;background:#151d3b;border:1px solid #2d3b68;border-radius:20px;margin-bottom:15px}.avatar{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#55c7ff,#8b5cff);display:grid;place-items:center;font-weight:900}
-.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#aeb8d7;text-align:left;padding:13px 14px;border-radius:14px}.nav button:hover,.nav button.active{background:#222d52;color:#fff}
-.main{background:rgba(9,13,29,.68);border:1px solid #202b4d;border-radius:30px;padding:28px;min-height:720px;box-shadow:0 24px 80px #0007}
-.screen{display:none}.screen.active{display:block;animation:in .22s ease}@keyframes in{from{opacity:.2;transform:translateY(5px)}to{opacity:1;transform:none}}
-.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.6px;color:#8090bc;font-weight:800}.title{font-size:42px;line-height:1.04;margin:7px 0 10px;letter-spacing:-1.6px}.sub{color:#aab4d1;line-height:1.6}
-.hero{padding:30px;border-radius:26px;background:linear-gradient(135deg,#18234c,#32135c);border:1px solid #3d4b80;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-70px;top:-80px;background:#6e5cff44;filter:blur(5px)}
-.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.card{background:#10172d;border:1px solid #293761;border-radius:22px;padding:20px}.metric{font-size:28px;font-weight:850;margin-top:5px}.muted{color:#9da9ca}.btn{border:0;border-radius:14px;padding:12px 18px;color:#fff;background:linear-gradient(90deg,#7657ff,#a84eff);font-weight:800}.btn.alt{background:#202b50}.btn.good{background:#137a5d}.tag{display:inline-flex;padding:7px 10px;border-radius:99px;background:#202b50;color:#bdcbef;font-size:12px;margin:3px}
-.lesson-card{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.big-word{font-size:50px;font-weight:900;letter-spacing:-2px;margin:18px 0 8px}
-input,textarea,select{width:100%;background:#0b1124;color:#fff;border:1px solid #2b3965;border-radius:14px;padding:13px;margin:7px 0 14px;outline:none}
-.wave{height:170px;border-radius:22px;background:#080e20;border:1px solid #334575;display:flex;align-items:center;justify-content:center;overflow:hidden}.bars{height:115px;display:flex;align-items:center;gap:4px}.bar{width:5px;border-radius:5px;background:linear-gradient(#55c7ff,#945bff);animation:pulse .9s ease-in-out infinite alternate}.paused .bar{animation:none;transform:scaleY(.2)}@keyframes pulse{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
-.result{background:#0b1226;border:1px solid #293861;border-radius:16px;padding:16px;margin-top:14px;white-space:pre-wrap;color:#dfe5fa}.option{padding:14px;border:1px solid #2b3965;border-radius:14px;margin:8px 0;background:#0d1429}.option:hover{background:#1b2648}
-.progress{height:12px;background:#202b50;border-radius:99px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,#55c7ff,#9259ff);width:68%}
-.footer{margin-top:18px;text-align:center;color:#667397;font-size:12px}
-@media(max-width:850px){.app{padding:12px}.prototype{grid-template-columns:1fr}.sidebar{position:static}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.main{padding:18px}.grid{grid-template-columns:1fr 1fr}.lesson-card{grid-template-columns:1fr}.title{font-size:34px}}
-@media(max-width:520px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;gap:8px}.tag{font-size:11px}}
-</style>
-</head>
-<body><div class="app"><div class="frame">
-<header class="top"><div><div class="brand"><span class="gradient">TongueTie</span></div><div class="muted">Learn Languages. Speak Confidently. Understand the World.</div></div><span class="tag">Interactive Figma-style prototype</span></header>
-<div class="prototype">
-<aside class="sidebar">
-<div class="profile-mini"><div class="row"><div class="avatar">TT</div><div><b>Language Learner</b><div class="muted">English • Urdu</div></div></div></div>
+*{box-sizing:border-box}body{margin:0;background:#050713;color:#f8f9ff;font-family:Inter,system-ui,-apple-system,sans-serif}
+.app{max-width:1180px;margin:auto;min-height:100vh;padding:24px}.top{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{font-size:30px;font-weight:850;background:linear-gradient(90deg,#fff,#55c7ff,#9b5cff);-webkit-background-clip:text;color:transparent}
+select,input,textarea{width:100%;background:#10172d;color:#fff;border:1px solid #293761;border-radius:14px;padding:13px;font:inherit}
+button{border:0;border-radius:14px;padding:13px 16px;background:linear-gradient(90deg,#287ba7,#6946b7);color:#fff;font-weight:750;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.hero{margin-top:20px;padding:28px;border:1px solid #293761;border-radius:28px;background:linear-gradient(135deg,#101a35,#17122f)}
+.hero h1{font-size:52px;margin:0 0 8px}.muted{color:#aab4d1}.card{background:#10172d;border:1px solid #293761;border-radius:20px;padding:20px}.screen{display:none;margin-top:20px}.screen.active{display:block}
+.nav{position:sticky;bottom:12px;margin-top:24px;background:#0b1125ee;border:1px solid #293761;border-radius:20px;padding:8px;display:flex;gap:7px;overflow:auto}
+.nav button{background:transparent;white-space:nowrap;padding:11px}.nav button.on{background:#1a2749}.pill{display:inline-block;background:#1b2748;border-radius:999px;padding:7px 10px;margin:4px;font-size:12px}
+.wave{height:100px;display:flex;align-items:center;justify-content:center;gap:5px}.bar{width:5px;height:20px;background:linear-gradient(#55c7ff,#9b5cff);border-radius:8px;animation:pulse .8s infinite ease-in-out}.bar:nth-child(2n){animation-delay:.1s}.bar:nth-child(3n){animation-delay:.2s}
+@keyframes pulse{50%{height:78px}}.record{width:100px;height:100px;border-radius:50%;font-size:32px;margin:12px}.chat{padding:15px;border-radius:18px;background:#171f3a;margin:8px 0}.you{background:#25204a}.result{font-size:24px;padding:18px;background:#0d1930;border-radius:18px;border:1px solid #293761}
+@media(max-width:800px){.app{padding:14px}.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:40px}}
+</style></head>
+<body><div class="app">
+<div class="top"><div><div class="brand">TongueTie</div><div class="muted">Learn Languages. Speak Confidently. Understand the World.</div></div>
+<div style="width:210px"><select id="lang"><option>English</option><option>Urdu</option><option>Arabic</option><option>Persian (Farsi)</option><option>Spanish</option><option>French</option><option>German</option><option>Chinese</option><option>Japanese</option><option>Korean</option><option>Hindi</option><option>Turkish</option><option>Russian</option></select></div></div>
+
+<section id="home" class="screen active"><div class="hero"><h1>Learn Any Language.</h1><p class="muted">One AI language partner for vocabulary, grammar, speaking, translation and correction.</p>
+<span class="pill">100+ Languages</span><span class="pill">AI Tutor</span><span class="pill">Voice Translator</span><span class="pill">Female Voice</span><span class="pill">Error Correction</span></div>
+<div class="grid" style="margin-top:14px"><div class="card"><b>🎙️ Voice</b><p class="muted">Speak → translate → listen.</p><button onclick="go('voice')">Open</button></div><div class="card"><b>🤖 AI Tutor</b><p class="muted">Ask anything about a language.</p><button onclick="go('tutor')">Open</button></div><div class="card"><b>✍️ Correction</b><p class="muted">Find mistakes and learn why.</p><button onclick="go('correct')">Open</button></div><div class="card"><b>📚 Learn</b><p class="muted">Daily lessons and quizzes.</p><button onclick="go('learn')">Open</button></div></div></section>
+
+<section id="voice" class="screen"><div class="card"><h2>🎙️ Voice Translator</h2><div class="grid"><div><label>From</label><select><option>English</option><option>Urdu</option><option>Arabic</option><option>Spanish</option><option>French</option></select></div><div><label>To</label><select><option>Urdu</option><option>English</option><option>Arabic</option><option>Spanish</option><option>French</option></select></div><div><label>Voice</label><select id="gender"><option>Female</option><option>Male</option><option>Browser default</option></select></div><div><label>Mode</label><select><option>Translate + Correct</option><option>Translate only</option><option>Pronunciation practice</option></select></div></div>
+<div style="text-align:center"><div class="wave" id="wave"></div><button class="record" id="rec">🎙️</button><div id="timer" class="muted">Ready</div></div>
+<textarea id="voiceText" placeholder="Or type what you want to translate..."></textarea><br><button onclick="translateDemo()">Translate & Analyze</button>
+<div id="voiceOut" style="margin-top:15px"></div></div></section>
+
+<section id="tutor" class="screen"><div class="card"><h2>🤖 AI Tutor</h2><div class="chat">Hi! I'm your TongueTie AI tutor. Ask me about grammar, vocabulary, pronunciation or conversation.</div><div class="chat you">Explain the difference between learn and study.</div><div class="chat">Learn = gain knowledge or a skill. Study = spend time learning or preparing. I'll give you examples and a mini quiz.</div><textarea placeholder="Ask anything..."></textarea><br><button onclick="alert('Connect this screen to your Gemini backend for live answers.')">Ask Gemini</button></div></section>
+
+<section id="correct" class="screen"><div class="card"><h2>✍️ Correct My Sentence</h2><textarea id="bad" rows="5">I go to market yesterday and buyed some food.</textarea><br><button onclick="correctDemo()">Correct & Explain</button><div id="corr" style="margin-top:15px"></div></div></section>
+
+<section id="learn" class="screen"><div class="card"><h2>📚 Daily Learning</h2><div class="grid"><div><b>Vocabulary</b><p class="muted">10 new words</p></div><div><b>Grammar</b><p class="muted">Present tense</p></div><div><b>Speaking</b><p class="muted">Restaurant dialogue</p></div><div><b>Quiz</b><p class="muted">10 questions</p></div></div><br><button onclick="alert('Lesson started')">Start Lesson</button></div></section>
+
+<section id="vocab" class="screen"><div class="card"><h2>📖 Vocabulary</h2><input placeholder="Search a word..."><p class="result">opportunity</p><p class="muted">A chance or possibility to do something.</p><p>Synonyms: chance · possibility · opening</p><button>🔊 Listen</button> <button>＋ Add to My Words</button></div></section>
+
+<section id="grammar" class="screen"><div class="card"><h2>🧠 Grammar</h2><h3>Present Simple</h3><p class="muted">Use it for habits, facts and routines.</p><ul><li>He/She/It + verb + s</li><li>I/You/We/They + base verb</li><li>Negative: do/does + not + verb</li><li>Questions: Do/Does + subject + verb?</li></ul><button>Practice</button></div></section>
+
+<section id="progress" class="screen"><div class="card"><h2>📊 My Progress</h2><div class="grid"><div><b>48</b><p class="muted">Lessons</p></div><div><b>1,248</b><p class="muted">Words</p></div><div><b>12</b><p class="muted">Day streak</p></div><div><b>90%</b><p class="muted">Quiz average</p></div></div></div></section>
+
 <div class="nav">
-<button class="active" data-go="home">⌂ Home</button><button data-go="lesson">◈ Daily Lesson</button><button data-go="voice">◉ Voice Studio</button><button data-go="translate">⇄ Translate</button><button data-go="tutor">✦ AI Tutor</button><button data-go="vocab">Aa Vocabulary</button><button data-go="grammar">✓ Grammar</button><button data-go="quiz">◇ Quiz</button><button data-go="progress">↗ Progress</button><button data-go="profile">◎ Profile</button>
-</div></aside>
-<main class="main">
-<section id="home" class="screen active"><div class="hero"><div class="eyebrow">Your daily journey</div><div class="title">Build confidence,<br><span class="gradient">one conversation at a time.</span></div><p class="sub">Personalized lessons, translation, pronunciation practice and an AI tutor in one place.</p><div class="row"><button class="btn" data-go="lesson">Start lesson</button><button class="btn alt" data-go="voice">Practice speaking</button></div></div>
-<div class="grid"><div class="card"><div class="muted">Vocabulary</div><div class="metric">248</div><div class="muted">+18 this week</div></div><div class="card"><div class="muted">Speaking</div><div class="metric">74%</div><div class="muted">confidence</div></div><div class="card"><div class="muted">Streak</div><div class="metric">7 days</div><div class="muted">keep going</div></div></div></section>
-
-<section id="lesson" class="screen"><div class="eyebrow">Daily lesson • 08 min</div><div class="title">Greetings & introductions</div><div class="lesson-card"><div class="card"><span class="tag">Everyday English</span><div class="big-word">Nice to meet you.</div><p class="sub">A friendly phrase used when you meet someone for the first time.</p><div class="row"><button class="btn" id="speakPhrase">🔊 Listen</button><button class="btn alt" data-go="voice">🎙 Practice</button></div></div><div class="card"><h3>Today's focus</h3><p>Vocabulary · pronunciation · polite conversation</p><div class="result">Try: “Hi, I'm Sara. Nice to meet you.”</div><div class="actions"><button class="btn" data-go="quiz">Quick quiz</button></div></div></div></section>
-
-<section id="voice" class="screen"><div class="eyebrow">Speaking studio</div><div class="title">Your voice, your progress.</div><div class="card"><p class="muted">Read this naturally:</p><h2>“Good morning! How are you today?”</h2><div class="wave paused" id="wave"><div class="bars" id="bars"></div></div><div class="row" style="margin-top:14px"><button class="btn" id="record">● Start recording</button><button class="btn alt" id="stop" disabled>■ Stop</button><button class="btn alt" id="play" disabled>▶ Play</button></div><div class="result" id="voiceStatus">Ready. Tap Start recording and allow microphone access.</div><div class="card" style="margin-top:14px"><b>Pronunciation coach</b><p class="muted">After recording, connect the production audio-analysis service for transcript, pronunciation, stress and fluency scoring.</p><button class="btn good" id="analyze" disabled>Analyze practice</button></div></div></section>
-
-<section id="translate" class="screen"><div class="eyebrow">Language tools</div><div class="title">Translate anything.</div><div class="card"><textarea id="transText" rows="5" placeholder="Type a word, sentence, or question...">How are you today?</textarea><div class="grid" style="grid-template-columns:1fr 1fr"><div><label class="muted">From</label><select><option>English</option><option>Urdu</option><option>Arabic</option><option>Persian (Farsi)</option></select></div><div><label class="muted">To</label><select><option>Urdu</option><option>English</option><option>Arabic</option><option>Persian (Farsi)</option></select></div></div><button class="btn" id="translate">Translate</button><div id="transResult" class="result" hidden></div></div></section>
-
-<section id="tutor" class="screen"><div class="eyebrow">AI learning partner</div><div class="title">Ask your tutor.</div><div class="card"><textarea id="question" rows="5" placeholder="e.g. Explain present perfect simply."></textarea><button class="btn" id="ask">Ask TongueTie AI</button><div id="tutorResult" class="result" hidden></div></div></section>
-
-<section id="vocab" class="screen"><div class="eyebrow">Vocabulary lab</div><div class="title">Master difficult words.</div><div class="card"><input id="word" placeholder="e.g. opportunity"><button class="btn" id="explain">Explain word</button><div id="wordResult" class="result" hidden></div></div></section>
-
-<section id="grammar" class="screen"><div class="eyebrow">Grammar made clear</div><div class="title">Present simple.</div><div class="grid" style="grid-template-columns:1fr 1fr"><div class="card"><h3>Rule</h3><p class="sub">I/you/we/they + base verb<br>he/she/it + verb + s/es</p></div><div class="card"><h3>Examples</h3><p>I work every day.<br>She works every day.</p></div></div><div class="card"><button class="btn" data-go="quiz">Practice now →</button></div></section>
-
-<section id="quiz" class="screen"><div class="eyebrow">Review & test</div><div class="title">Quick grammar check.</div><div class="card"><p>Choose the correct sentence:</p><label class="option"><input type="radio" name="q" value="0"> He go to school every day.</label><label class="option"><input type="radio" name="q" value="1"> He goes to school every day.</label><button class="btn" id="check">Check answer</button><div id="quizResult" class="result" hidden></div></div></section>
-
-<section id="progress" class="screen"><div class="eyebrow">Your analytics</div><div class="title">Progress that you can see.</div><div class="card"><div class="row" style="justify-content:space-between"><b>Overall learning</b><b>68%</b></div><div class="progress"><div></div></div><div class="grid"><div class="card"><b>248</b><div class="muted">words</div></div><div class="card"><b>48</b><div class="muted">lessons</div></div><div class="card"><b>7</b><div class="muted">day streak</div></div></div></div></section>
-
-<section id="profile" class="screen"><div class="eyebrow">Account</div><div class="title">Your learning profile.</div><div class="card"><div class="row"><div class="avatar">TT</div><div><h2 style="margin:0">Language Learner</h2><div class="muted">Learning English</div></div></div><hr style="border-color:#293761;margin:20px 0"><span class="tag">English</span><span class="tag">Urdu</span><span class="tag">Arabic</span><span class="tag">Persian</span></div></section>
-</main></div><div class="footer">TongueTie • Figma-style product prototype • Connect Gemini/RAG backend for live AI features</div></div></div>
+<button data-s="home" onclick="go('home')">⌂ Home</button><button data-s="learn" onclick="go('learn')">Learn</button>
+<button data-s="voice" onclick="go('voice')">🎙️ Voice</button><button data-s="tutor" onclick="go('tutor')">AI Tutor</button>
+<button data-s="correct" onclick="go('correct')">Correct</button><button data-s="vocab" onclick="go('vocab')">Words</button>
+<button data-s="grammar" onclick="go('grammar')">Grammar</button><button data-s="progress" onclick="go('progress')">Progress</button>
+</div></div>
 <script>
-const screens=[...document.querySelectorAll(".screen")],nav=[...document.querySelectorAll(".nav button")];
-function go(id){screens.forEach(s=>s.classList.toggle("active",s.id===id));nav.forEach(b=>b.classList.toggle("active",b.dataset.go===id));scrollTo({top:0,behavior:"smooth"})}
-document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
-const bars=document.getElementById("bars");for(let i=0;i<46;i++){let b=document.createElement("span");b.className="bar";b.style.height=(20+Math.abs(Math.sin(i*.7))*80)+"px";b.style.animationDelay=(i%10)*.06+"s";bars.appendChild(b)}
-let rec=null,chunks=[],url=null;
-const record=document.getElementById("record"),stop=document.getElementById("stop"),play=document.getElementById("play"),analyze=document.getElementById("analyze"),status=document.getElementById("voiceStatus"),wave=document.getElementById("wave");
-record.onclick=async()=>{if(!navigator.mediaDevices?.getUserMedia){status.textContent="Microphone recording is not supported here.";return}try{let stream=await navigator.mediaDevices.getUserMedia({audio:true});chunks=[];rec=new MediaRecorder(stream);rec.ondataavailable=e=>e.data.size&&chunks.push(e.data);rec.onstop=()=>{let blob=new Blob(chunks,{type:rec.mimeType||"audio/webm"});url=URL.createObjectURL(blob);play.disabled=false;analyze.disabled=false;status.textContent="Recording captured. Play it back or analyze it.";stream.getTracks().forEach(t=>t.stop())};rec.start();record.disabled=true;stop.disabled=false;wave.classList.remove("paused");status.textContent="Recording… speak clearly."}catch(e){status.textContent="Microphone permission was not granted."}};
-stop.onclick=()=>{if(rec&&rec.state!=="inactive"){rec.stop();record.disabled=false;stop.disabled=true;wave.classList.add("paused")}};
-play.onclick=()=>{if(url)new Audio(url).play();};
-analyze.onclick=()=>status.textContent="Demo: connect an audio/speech analysis backend to produce real pronunciation feedback.";
-document.getElementById("speakPhrase").onclick=()=>{if("speechSynthesis"in window)speechSynthesis.speak(new SpeechSynthesisUtterance("Nice to meet you."))};
-document.getElementById("translate").onclick=()=>{let t=document.getElementById("transText").value.trim(),r=document.getElementById("transResult");r.hidden=false;r.textContent=t?`Prototype result for: ${t}\n\nConnect Gemini for live translation, difficult-word explanation and alternative natural phrasing.`:"Please enter text."};
-document.getElementById("ask").onclick=()=>{let q=document.getElementById("question").value.trim(),r=document.getElementById("tutorResult");r.hidden=false;r.textContent=q?`TongueTie AI prototype response:\n\nI'll explain “${q}” simply, give examples, common mistakes and a short practice task.\n\nConnect Gemini + RAG for the live response.`:"Ask a question first."};
-document.getElementById("explain").onclick=()=>{let w=document.getElementById("word").value.trim(),r=document.getElementById("wordResult");r.hidden=false;r.textContent=w?`“${w}” — prototype word card\n\nMeaning • Urdu/Arabic/Farsi translation • part of speech • synonyms • antonyms • examples • pronunciation.\n\nConnect Gemini + RAG for live analysis.`:"Enter a word first."};
-document.getElementById("check").onclick=()=>{let v=document.querySelector('input[name=q]:checked'),r=document.getElementById("quizResult");r.hidden=false;r.textContent=!v?"Select an answer.":v.value==="1"?"Correct! “He goes…” is the correct form.":"Not quite. Use “goes” with he/she/it."};
+const screens=[...document.querySelectorAll('.screen')];
+function go(id){screens.forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.s===id));scrollTo(0,0)}
+function bars(){let w=document.getElementById('wave');w.innerHTML='';for(let i=0;i<26;i++){let b=document.createElement('span');b.className='bar';b.style.animationDelay=(i*.035)+'s';w.appendChild(b)}}
+bars();
+let recorder, chunks=[], timerInt, seconds=0;
+document.getElementById('rec').onclick=async()=>{
+ const btn=document.getElementById('rec');
+ if(!recorder || recorder.state==='inactive'){
+   try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    chunks=[]; recorder=new MediaRecorder(stream);
+    recorder.ondataavailable=e=>chunks.push(e.data);
+    recorder.onstop=()=>{stream.getTracks().forEach(t=>t.stop());document.getElementById('timer').textContent='Recording saved locally';};
+    recorder.start(); btn.textContent='⏹️'; seconds=0;
+    timerInt=setInterval(()=>{seconds++;document.getElementById('timer').textContent='00:'+String(seconds).padStart(2,'0')},1000);
+   }catch(e){alert('Microphone permission is required.');}
+ }else{
+   recorder.stop();btn.textContent='🎙️';clearInterval(timerInt);
+ }
+};
+function translateDemo(){
+ const t=document.getElementById('voiceText').value.trim();
+ if(!t){alert('Type a sentence or record your voice first.');return}
+ document.getElementById('voiceOut').innerHTML='<div class="result">تم کیسے ہو؟</div><p class="muted">Demo translation. Connect Gemini + STT for live multilingual translation.</p><button onclick="speak()">🔊 Speak with preferred voice</button><div class="card"><b>Correction</b><p>We can check grammar, spelling, fluency and naturalness before translating.</p></div>';
+}
+function speak(){
+ const text=document.querySelector('#voiceOut .result')?.textContent||'';
+ if(!('speechSynthesis' in window)){alert('Browser speech synthesis is not available.');return}
+ const u=new SpeechSynthesisUtterance(text);u.lang='ur-PK';
+ const voices=speechSynthesis.getVoices();
+ const female=voices.find(v=>/female|woman|zira|samantha|susan|aria|google.*female/i.test(v.name+' '+v.voiceURI));
+ if(document.getElementById('gender').value==='Female'&&female)u.voice=female;
+ speechSynthesis.speak(u);
+}
+function correctDemo(){
+ const x=document.getElementById('bad').value;
+ document.getElementById('corr').innerHTML='<div class="result">I went to the market yesterday and bought some food.</div><p class="muted"><b>Why:</b> “Yesterday” requires past tense: go → went, buy → bought. “the market” is the natural phrase here.</p>';
+}
 </script></body></html>
