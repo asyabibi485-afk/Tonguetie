@@ -2,10 +2,42 @@
 import os
 import json
 import streamlit as st
-from gemini_service import (
-    ai_tutor, translate_text, correct_text, explain_word, generate_quiz,
-    lesson_plan
-)
+def _load_gemini():
+    try:
+        from gemini_service import (
+            ai_tutor as _ai_tutor,
+            translate_text as _translate_text,
+            correct_text as _correct_text,
+            explain_word as _explain_word,
+            generate_quiz as _generate_quiz,
+            lesson_plan as _lesson_plan,
+        )
+        return (_ai_tutor, _translate_text, _correct_text,
+                _explain_word, _generate_quiz, _lesson_plan)
+    except Exception as exc:
+        raise RuntimeError(
+            "TongueTie AI module could not load. Make sure gemini_service.py "
+            "is beside app.py and google-genai is listed in requirements.txt. "
+            f"Details: {exc}"
+        ) from exc
+
+def ai_tutor(*args, **kwargs):
+    return _load_gemini()[0](*args, **kwargs)
+
+def translate_text(*args, **kwargs):
+    return _load_gemini()[1](*args, **kwargs)
+
+def correct_text(*args, **kwargs):
+    return _load_gemini()[2](*args, **kwargs)
+
+def explain_word(*args, **kwargs):
+    return _load_gemini()[3](*args, **kwargs)
+
+def generate_quiz(*args, **kwargs):
+    return _load_gemini()[4](*args, **kwargs)
+
+def lesson_plan(*args, **kwargs):
+    return _load_gemini()[5](*args, **kwargs)
 from language_data import LANGUAGES, language_options
 from rag import retrieve_context
 

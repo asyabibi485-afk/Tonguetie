@@ -1,7 +1,5 @@
 
 import os
-from google import genai
-
 def _setting(name, default=None):
     value = os.getenv(name)
     if value:
@@ -18,7 +16,16 @@ def _setting(name, default=None):
 def _client():
     key = _setting("GEMINI_API_KEY")
     if not key:
-        raise RuntimeError("GEMINI_API_KEY is not configured in Streamlit Secrets or environment variables.")
+        raise RuntimeError(
+            "GEMINI_API_KEY is not configured in Streamlit Secrets or environment variables."
+        )
+    try:
+        from google import genai
+    except ImportError as exc:
+        raise RuntimeError(
+            "google-genai is not installed. Add google-genai to requirements.txt "
+            "and reboot the Streamlit app."
+        ) from exc
     return genai.Client(api_key=key)
 
 def _model():
