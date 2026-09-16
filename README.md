@@ -1,50 +1,35 @@
-# TongueTie 🌐
+# TongueTie — Figma-Style Full App Package
 
-**Learn Languages. Speak Confidently. Understand the World.**
+This ZIP is the revised package requested for the TongueTie app.
 
-TongueTie is a Streamlit-ready multilingual AI language-learning starter application with a Figma-inspired dark UI, Gemini integration, lightweight RAG workflow, quizzes, translation, dictionary help, speaking-coach analysis, and progress/admin screens.
+## Main prototype
+Open `prototype/index.html`.
 
-## Features
-- English learning with Urdu, Arabic, Persian/Farsi and many additional languages
-- Daily-life lessons
-- Vocabulary and difficult-word explanations
-- Grammar concepts and practice
-- Translation
-- AI speaking coach
-- Quiz/test generation
-- RAG retrieval from a local knowledge base
-- Progress and demo admin dashboard
-- Gemini API through environment variables / Streamlit Secrets
-- GitHub + Streamlit Cloud friendly structure
+The interface is deliberately designed as a polished Figma-style product prototype:
+- mobile-responsive visual system
+- dark premium UI
+- rounded cards and panels
+- gradients and design tokens
+- persistent navigation
+- clickable screen-to-screen prototype flow
 
-## Run locally
+## Clickable flow
+Home → Daily Lesson → Voice Studio → Translate → AI Tutor → Vocabulary → Grammar → Quiz → Progress → Profile.
 
-```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-streamlit run app.py
-```
+## Voice Studio
+Includes a dedicated waveform screen with browser microphone recording, stop and playback controls.
 
-Set `GEMINI_API_KEY` in your environment or Streamlit Secrets.
+## Streamlit
+`streamlit_app/app.py` is a development shell for moving the visual system into Streamlit.
 
-## Streamlit Cloud
-1. Push this folder to a GitHub repository.
-2. Create a Streamlit Cloud app from the repository.
-3. Set the main file to `app.py`.
-4. In Streamlit Secrets, add:
-   `GEMINI_API_KEY = "your-key"`
-5. Deploy.
+## Production integration
+Connect:
+- Gemini API
+- RAG/vector database
+- speech-to-text
+- text-to-speech
+- pronunciation scoring
+- authentication
+- user progress database
 
-## Production roadmap
-- Add authentication and role-based access.
-- Store users/progress in PostgreSQL/Supabase/Firebase.
-- Add embeddings + vector database for stronger RAG.
-- Add browser/mobile audio recording and speech-to-text.
-- Add text-to-speech and pronunciation scoring.
-- Add rate limits, logging, monitoring, and secret rotation.
-- Replace demo admin metrics with real database queries.
-
-## Security
-Never commit a Gemini API key to GitHub. Use Streamlit Secrets or environment variables.
+Never commit API keys to GitHub; use Streamlit Secrets/environment variables.

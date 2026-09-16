@@ -1,101 +1,39 @@
-import os
+
 import streamlit as st
-from pathlib import Path
-from rag import retrieve_context
-from gemini_service import ask_gemini
-from language_data import LANGUAGES
-
-st.set_page_config(page_title="TongueTie", page_icon="🌐", layout="wide")
-
+st.set_page_config(page_title="TongueTie",page_icon="🌐",layout="wide")
 st.markdown("""
 <style>
-.stApp {background: linear-gradient(135deg,#070B1A 0%,#101633 55%,#17103A 100%); color:#F7F8FF;}
-.block-container {max-width:1200px; padding-top:2rem;}
-.hero {padding:28px; border-radius:24px; background:linear-gradient(135deg,#151D46,#24164F);
-border:1px solid #39447D; box-shadow:0 12px 40px rgba(0,0,0,.25);}
-.brand {font-size:42px;font-weight:800;letter-spacing:-1px;}
-.grad {background:linear-gradient(90deg,#55B7FF,#A46BFF);-webkit-background-clip:text;color:transparent;}
-.card {padding:20px;border-radius:20px;background:#111936;border:1px solid #2D3968;margin:8px 0;}
-.small {color:#AAB5D8;}
+.stApp{background:radial-gradient(circle at 70% 0,#291453 0,#080b18 48%,#050713 100%);color:#f8f9ff}
+.block-container{max-width:1180px;padding-top:2rem}
+h1,h2,h3{letter-spacing:-.5px}
+div[data-testid="stMetric"]{background:#10172d;border:1px solid #293761;padding:16px;border-radius:18px}
 </style>
-""", unsafe_allow_html=True)
-
-if "history" not in st.session_state:
-    st.session_state.history = []
-
-with st.sidebar:
-    st.markdown("## 🌐 TongueTie")
-    st.caption("Learn Languages. Speak Confidently. Understand the World.")
-    page = st.radio("Navigate", ["Learn", "Translate", "Speaking Agent", "Quiz", "Dictionary", "Progress", "Admin"])
-    source_lang = st.selectbox("Learning language", LANGUAGES, index=0)
-    native_lang = st.selectbox("Your language", LANGUAGES, index=1 if len(LANGUAGES)>1 else 0)
-    st.divider()
-    st.caption("Powered by Gemini API • RAG • Streamlit")
-
-if page == "Learn":
-    st.markdown('<div class="hero"><div class="brand"><span class="grad">TongueTie</span></div><p>One app. Infinite languages. A smarter daily learning partner.</p></div>', unsafe_allow_html=True)
-    a,b,c,d = st.columns(4)
-    for col,title,value in [(a,"Vocabulary","248"),(b,"Grammar","12"),(c,"Streak","7 days"),(d,"Progress","68%")]:
-        with col:
-            st.markdown(f'<div class="card"><div class="small">{title}</div><h2>{value}</h2></div>', unsafe_allow_html=True)
-    st.subheader("Today's lesson")
-    topic = st.selectbox("Choose a daily-life topic", ["Greetings & introductions","At the restaurant","Travel & transportation","Shopping","Work & business","Academic English"])
-    if st.button("✨ Generate lesson", type="primary"):
-        context = retrieve_context(topic)
-        prompt = f"Create a beginner-friendly {source_lang} lesson for a learner whose native language is {native_lang}. Topic: {topic}. Include 8 vocabulary words, 3 grammar points, examples, and a short exercise. Context: {context}"
-        answer = ask_gemini(prompt)
-        st.markdown(answer)
-    st.info("RAG flow: Learn → Retrieve relevant knowledge → Generate with Gemini → Practice → Review.")
-
-elif page == "Translate":
-    st.title("🔄 Translate")
-    text = st.text_area("Text or difficult word", placeholder="Type a word, sentence, or question...")
-    target = st.selectbox("Translate to", LANGUAGES, index=1 if len(LANGUAGES)>1 else 0)
-    if st.button("Translate", type="primary") and text.strip():
-        context = retrieve_context(text)
-        st.markdown(ask_gemini(f"Translate the following into {target}. Explain difficult vocabulary briefly and give a natural everyday version. Text: {text}\nContext: {context}"))
-
-elif page == "Speaking Agent":
-    st.title("🎙️ AI Speaking Agent")
-    st.write("Practice a real-life conversation and receive language feedback.")
-    scenario = st.selectbox("Scenario", ["Introducing yourself","Job interview","Restaurant","Travel","Doctor visit","Casual conversation"])
-    user_text = st.text_area("Type what you would say (voice input can be added through your deployment's browser/audio layer)", height=130)
-    if st.button("Analyze my speaking practice", type="primary") and user_text.strip():
-        st.markdown(ask_gemini(f"Act as a supportive {source_lang} speaking coach. Scenario: {scenario}. Analyze this learner response: {user_text}. Return: corrected version, grammar notes, vocabulary improvements, pronunciation tips, and a score out of 100. Do not shame the learner."))
-
-elif page == "Quiz":
-    st.title("🧠 Quiz & Test")
-    topic = st.selectbox("Quiz topic", ["Vocabulary","Grammar","Daily conversation","Translation"])
-    if st.button("Generate quiz", type="primary"):
-        st.markdown(ask_gemini(f"Create a 5-question {source_lang} {topic} quiz for a learner whose native language is {native_lang}. Give four options per question, then put an answer key at the end."))
-    st.divider()
-    st.caption("Use generated questions for self-testing; review mistakes after the test.")
-
-elif page == "Dictionary":
-    st.title("📖 Dictionary & Difficult Word Helper")
-    word = st.text_input("Enter a difficult word")
-    if st.button("Explain word", type="primary") and word.strip():
-        context = retrieve_context(word)
-        st.markdown(ask_gemini(f"Explain the word '{word}' to a language learner. Include meaning in {native_lang}, part of speech, simple definition, synonyms, antonyms, two examples, and a pronunciation guide. Context: {context}"))
-
-elif page == "Progress":
-    st.title("📈 My Progress")
-    st.progress(0.68)
-    x,y,z = st.columns(3)
-    x.metric("Words learned","248","+18")
-    y.metric("Lessons","48","+4")
-    z.metric("Current streak","7 days","+2")
-    st.markdown('<div class="card"><h3>Learning review</h3><p>Focus next on speaking confidence, grammar practice, and recently missed quiz questions.</p></div>', unsafe_allow_html=True)
-
-elif page == "Admin":
-    st.title("🛠️ Admin Dashboard")
-    st.caption("Demo analytics interface — connect your database/auth layer before production.")
-    a,b,c,d = st.columns(4)
-    a.metric("Users","12,458")
-    b.metric("Active today","3,247")
-    c.metric("Lessons","1,248")
-    d.metric("Languages","100+")
-    st.subheader("RAG / Gemini configuration")
-    st.write("Gemini API key detected:", bool(os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")))
-    st.write("Knowledge base:", "data/knowledge_base.txt")
-    st.write("UI:", "TongueTie dark-mode responsive Streamlit interface")
+""",unsafe_allow_html=True)
+st.markdown("# <span style='background:linear-gradient(90deg,#55c7ff,#9b5cff);-webkit-background-clip:text;color:transparent'>TongueTie</span>",unsafe_allow_html=True)
+st.caption("Figma-style Streamlit implementation shell — connect your Gemini/RAG services here.")
+page=st.sidebar.radio("Navigate",["Home","Voice Studio","Translate","AI Tutor","Vocabulary","Grammar","Quiz","Progress","Admin"])
+if page=="Home":
+    st.title("Build confidence, one conversation at a time.")
+    a,b,c=st.columns(3);a.metric("Vocabulary","248","+18");b.metric("Speaking","74%");c.metric("Streak","7 days")
+elif page=="Voice Studio":
+    st.title("🎙️ Voice Studio")
+    st.write("Dedicated recorder interface")
+    audio=st.audio_input("Record your practice")
+    if audio: st.audio(audio);st.success("Recording captured.")
+elif page=="Translate":
+    st.title("🌍 Translate")
+    text=st.text_area("Text or difficult word")
+    target=st.selectbox("Target language",["English","Urdu","Arabic","Persian (Farsi)","Spanish","French","German","Chinese"])
+    if st.button("Translate") and text: st.info(f"Connect Gemini to translate into {target}.")
+elif page=="AI Tutor":
+    st.title("✦ AI Tutor");st.text_area("Ask a question");st.button("Ask TongueTie AI")
+elif page=="Vocabulary":
+    st.title("Aa Vocabulary");st.text_input("Difficult word");st.button("Explain word")
+elif page=="Grammar":
+    st.title("✓ Grammar");st.write("Present simple: I/you/we/they + base verb; he/she/it + s/es.")
+elif page=="Quiz":
+    st.title("◇ Quiz");st.radio("Choose the correct sentence",["He go to school.","He goes to school."]);st.button("Check answer")
+elif page=="Progress":
+    st.title("↗ Progress");st.progress(.68)
+else:
+    st.title("Admin Dashboard");st.info("Connect authentication and a database before production.")
