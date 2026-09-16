@@ -1,0 +1,13 @@
+Daily-life English: Greetings include hello, good morning, nice to meet you, how are you, and see you later. Practice polite introductions and short responses.
+
+Present simple grammar: Use the base verb for I/you/we/they. Add -s or -es for he/she/it. Use do/does for many questions and negatives.
+
+Vocabulary learning: Teach meaning, part of speech, example sentence, common collocations, synonyms, antonyms, and translation into the learner's native language.
+
+Pronunciation practice: Focus on word stress, syllables, connected speech, difficult consonants and vowels, and listening before repeating.
+
+Restaurant English: Useful phrases include asking for a table, ordering food, asking for the bill, describing dietary needs, and thanking staff.
+
+Travel English: Teach airport, hotel, directions, tickets, transportation, emergencies, and polite questions.
+
+RAG workflow: retrieve relevant knowledge first, add it to the prompt, generate a grounded explanation, then give the learner practice and review.
