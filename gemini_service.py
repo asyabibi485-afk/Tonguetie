@@ -2,16 +2,28 @@
 import os
 from google import genai
 
+def _setting(name, default=None):
+    value = os.getenv(name)
+    if value:
+        return value
+    try:
+        import streamlit as st
+        value = st.secrets.get(name)
+        if value:
+            return value
+    except Exception:
+        pass
+    return default
+
 def _client():
-    key = os.getenv("GEMINI_API_KEY")
+    key = _setting("GEMINI_API_KEY")
     if not key:
-        raise RuntimeError("GEMINI_API_KEY is not configured.")
+        raise RuntimeError("GEMINI_API_KEY is not configured in Streamlit Secrets or environment variables.")
     return genai.Client(api_key=key)
 
 def _model():
-    # Configure a current model in Streamlit secrets/environment.
-    # The app intentionally avoids assuming a model name that may change.
-    return os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    # Set GEMINI_MODEL in Streamlit Secrets to a model enabled for your API account.
+    return _setting("GEMINI_MODEL", "gemini-2.5-flash")
 
 def ask(prompt):
     try:
